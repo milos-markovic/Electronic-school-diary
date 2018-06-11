@@ -1,0 +1,39 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+.wrapper{
+    width: 960px;
+    border: 1px solid black;
+    margin-top: 20px;
+}
+header{
+    padding: 40px;
+    background-color: #1b6d85;
+    color: white;
+}
+
+section{
+    //height: 500px;
+    padding: 20px;
+}
+footer{
+    background-color: #1b6d85;
+    padding: 20px;
+    text-align: center;
+    color:white;
+}
+footer p{
+    margin-bottom: 0;
+}
+.deleteSubject{
+    float:right;
+}
+.deleteClass{
+    margin-left: 20px;
+    margin-right: 10px;
+}
+.parent_table{
+    margin-bottom: 80px;
+}
+
