@@ -12,11 +12,6 @@ header{
     background-color: #1b6d85;
     color: white;
 }
-
-section{
-    //height: 500px;
-    padding: 20px;
-}
 footer{
     background-color: #1b6d85;
     padding: 20px;
@@ -36,4 +31,9 @@ footer p{
 .parent_table{
     margin-bottom: 80px;
 }
-
+.pozadina {
+ 
+    background: #FFE000;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #799F0C, #FFE000);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #799F0C, #FFE000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}

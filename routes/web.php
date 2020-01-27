@@ -82,10 +82,6 @@ Route::get('parent','ParentController@index')->name('parent.index');
 Route::get('parent/student/{student}/details','ParentController@studentDetails')->name('parent.student.details');
 
 
-
-
-/* Login */
-
-Route::get('login','LoginController@login')->name('login');
-Route::post('login','LoginController@storeLogin')->name('login.user');
+Route::get('login','LoginController@getLogin')->name('getLogin');
+Route::post('login','LoginController@postLogin')->name('login');
 Route::get('logout','LoginController@logout')->name('logout');

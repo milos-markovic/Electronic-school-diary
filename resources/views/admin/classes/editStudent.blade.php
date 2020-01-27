@@ -12,14 +12,14 @@
       
     <div class="col-sm-4">
     
-        <img src="http://localhost/elektronski_dnevnik/public/images/{{ $student->photo->name }}" width="270" style="border:1px solid gray" />
+        <img src="{{ asset('images/'.$student->photo->name) }}" width="270" style="border:1px solid gray" />
     
     </div>
 
     
     <div class="col-sm-8">
     
-        <form action='{{ route('classroom.studentUpdate',$student->id) }}' method='POST' enctype='multipart/form-data' >
+        <form action="{{ route('classroom.studentUpdate',$student->id) }}" method='POST' enctype='multipart/form-data' >
             {{ csrf_field() }}
             
             <p>

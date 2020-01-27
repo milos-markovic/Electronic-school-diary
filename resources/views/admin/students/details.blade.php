@@ -2,34 +2,40 @@
 
 @section('content')
 
-<h2>Details of student {{ $student->first_name.' '.$student->last_name }}:</h2><br>
+<a href="{{ url('admin/students') }}">Back</a>
 
-<table class='table'>
-    <thead>
-        <tr>
-            <th></th>
-            <th>First name</th>
-            <th>Last name</th>
-            <th>Email</th>
-            <th>Date of birth</th>
-            <th>Created at</th>
-            <th>Updated at</th>
-            <th>Classroom</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><img src="http://localhost/elektronski_dnevnik/public/images/{{ $student->photo->name }}" width="100" /></td>
-            <td>{{ $student->first_name }}</td>
-            <td>{{ $student->last_name }}</td>
-            <td>{{ $student->email }}</td>
-            <td>{{ $student->date_of_birth }}</td>
-            <td>{{ $student->created_at->diffForHumans() }}</td>
-            <td>{{ $student->updated_at->diffForHumans() }}</td>
-            <td>{{ $student->classroom->class_name }}</td>
-        </tr>
-    </tbody>
-</table>
+<h2 class="text-center">Details of student: {{ $student->first_name.' '.$student->last_name }}:</h2><br>
+
+<div class="card">
+
+    <table class='table text-center'>
+        <thead>
+            <tr>
+                <th></th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Email</th>
+                <th>Date of birth</th>
+                <th>Created at</th>
+                <th>Updated at</th>
+                <th>Classroom</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><img src="{{ asset('images/'.$student->photo->name) }}" width="100" /></td>
+                <td>{{ $student->first_name }}</td>
+                <td>{{ $student->last_name }}</td>
+                <td>{{ $student->email }}</td>
+                <td>{{ $student->date_of_birth }}</td>
+                <td>{{ $student->created_at->diffForHumans() }}</td>
+                <td>{{ $student->updated_at->diffForHumans() }}</td>
+                <td>{{ $student->classroom->class_name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
 
 <br>
 

@@ -17,7 +17,7 @@
     </thead>
     <tbody>
         <tr>
-            <td><img src='http://localhost/elektronski_dnevnik/public/images/{{ $student->photo->name }}' width='100' /></td>
+            <td><img src="{{ asset('images/'.$student->photo->name) }}" width='100' /></td>
             <td>{{ $student->first_name }}</td>
             <td>{{ $student->last_name }}</td>
             <td>{{ $student->email }}</td>

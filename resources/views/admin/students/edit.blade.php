@@ -5,25 +5,23 @@
 @section('content')
 
 
-<h2>Update student {{ $student->first_name.' '.$student->last_name }}:</h2><br>
-
-
-@include('errors.formErrors')
-
+<h2 class="text-center">Update student: {{ $student->first_name.' '.$student->last_name }}</h2><br>
 
 
 <div class="row">
       
     <div class="col-sm-4">
     
-        <img src="http://localhost/elektronski_dnevnik/public/images/{{ $student->photo->name }}" class="img-thumbnail border-dark" />
+        <img src="{{ asset('images/'.$student->photo->name) }}" class="img-thumbnail border-dark" />
     
     </div>
 
     
     <div class="col-sm-8">
     
-        <form action='{{ route('students.update',$student->id) }}' method='POST' enctype='multipart/form-data' >
+        @include('errors.formErrors')
+
+        <form action="{{ route('students.update',$student->id) }}" method='POST' enctype='multipart/form-data' >
             {{ csrf_field() }}
             
             {{ method_field('PUT') }}
@@ -72,7 +70,7 @@
                 <label for='photo'>Pick file for profile photo:</label>
                 <input type='file' name='photo' id='photo' />
             </p>
-            <p>
+            <p class="text-center">
                 <input type='submit' name='submit' value='Update' class='btn btn-outline-primary' />
             </p>
         </form>

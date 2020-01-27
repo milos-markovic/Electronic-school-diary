@@ -3,21 +3,21 @@
 
 @section('content')
 
-<h2>Update user {{ $user->first_name.' '.$user->last_name }}:</h2><hr><br>
+<h2 class="text-center">Update User: {{ $user->first_name.' '.$user->last_name }}:</h2><hr><br>
 
 <div class="row">
    
     
 <div class="col-sm-3">
     
-    <img src="http://localhost/elektronski_dnevnik/public/images/{{ $user->photo->name }}" class="img-thumbnail border-dark" />
+    <img src="{{ asset('images/'.$user->photo->name) }}" class="img-thumbnail border-dark" />
     
 </div>
 
     
 <div class="col-sm-9">    
     
-    <form action='{{ url('admin/users',$user->id) }}' method='POST' enctype='multipart/form-data'>
+    <form action="{{ url('admin/users',$user->id) }}" method='POST' enctype='multipart/form-data'>
 
         {{ method_field('PUT') }}
 
@@ -55,12 +55,12 @@
             <input type='file' name='photo_id' id='photo_id' class='form-control'  />
         </p>
         <p>
-            <input type='submit' name='submit' value='Update' class='btn btn-outline-success '  />
+            <input type='submit' name='submit' value='Update' class='btn btn-outline-primary '  />
         </p>
 
     </form>
 
-    <form action='{{ url('admin/users',$user->id) }}' method='POST' >
+    <form action="{{ url('admin/users',$user->id) }}" method='POST' >
         {{ csrf_field() }}
 
         {{ method_field('DELETE') }}

@@ -3,7 +3,7 @@
 
 @section('content')
 
-<h2>Update Professor {{ $professor->first_name.' '.$professor->last_name }}:</h2><hr><br>
+<h2 class="text-center">Update Professor: {{ $professor->first_name.' '.$professor->last_name }}:</h2><hr><br>
 
 @include('errors.formErrors')
 
@@ -11,11 +11,11 @@
 
     
 <div class="col-sm-3">
-    <img src="http://localhost/elektronski_dnevnik/public/images/{{ $professor->photo->name }}" class="img-thumbnail border-secondary" />
+    <img src="{{ asset('images/'.$professor->photo->name ) }}" class="img-thumbnail border-secondary" />
 </div>
 
 <div class="col-sm-9">
-    <form action='{{ route('professors.update',$professor->id) }}' method='POST' enctype='multipart/form-data'>
+    <form action="{{ route('professors.update',$professor->id) }}" method='POST' enctype='multipart/form-data'>
 
         {{ csrf_field() }}
         {{ method_field('PUT') }}
@@ -39,8 +39,8 @@
             <label for='file' >Pick profile Picture:</label>
             <input type='file' name='file' id='file' class='btn btn-outline-default' />
         </p>
-        <p>
-            <input type='submit' name='submit' value='Update' class='btn btn-outline-success' />
+        <p class="text-center">
+            <input type='submit' name='submit' value='Update' class='btn btn-outline-primary' />
         </p>
     </form>
 </div>

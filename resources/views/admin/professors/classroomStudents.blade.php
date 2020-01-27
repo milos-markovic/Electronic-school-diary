@@ -19,8 +19,8 @@
     <tbody>
         @foreach($classroom->students as $student)
         <tr>
-            <td><img src='http://localhost/elektronski_dnevnik/public/images/{{ $student->photo->name }}' width='100' /></td>
-            <td><a href='{{ route('professor.studentDetails',$student->id) }}'>{{ $student->first_name }}</a></td>
+            <td><img src="{{ asset('images/'.$student->photo->name) }}" width='100' /></td>
+            <td><a href="{{ route('professor.studentDetails',$student->id) }}">{{ $student->first_name }}</a></td>
             <td>{{ $student->last_name }}</td>
             <td>{{ $student->email }}</td>
             <td>{{ $student->date_of_birth }}</td>

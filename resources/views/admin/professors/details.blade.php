@@ -3,32 +3,36 @@
 
 @section('content')
 
-<h2>Details of professor {{ $professor->first_name.' '.$professor->last_name }}</h2><br>
+<h2 class="text-center">Details of professor: {{ $professor->first_name.' '.$professor->last_name }}</h2><br>
 
-<table class='table'>
-    <thead>
-        <tr>
-            <th></th>
-            <th>First name</th>
-            <th>Last name</th>
-            <th>Email</th>
-            <th>Role</th>
-            <th>Created_at</th>
-            <th>Updated_at</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><img src="http://localhost/elektronski_dnevnik/public/images/{{ $professor->photo->name }}" width="100" class="border"  /></td>
-            <td>{{ $professor->first_name }}</td>
-            <td>{{ $professor->last_name }}</td>
-            <td>{{ $professor->email }}</td>
-            <td>{{ $professor->role->name }}</td>
-            <td>{{ $professor->created_at->diffForHumans() }}</td>
-            <td>{{ $professor->updated_at->diffForHumans() }}</td>
-        </tr>
-    </tbody>
-</table>
+<div class="card">
+
+    <table class='table'>
+        <thead>
+            <tr>
+                <th></th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Created_at</th>
+                <th>Updated_at</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><img src="{{ asset('images/'.$professor->photo->name) }}" width="100" class="border"  /></td>
+                <td>{{ $professor->first_name }}</td>
+                <td>{{ $professor->last_name }}</td>
+                <td>{{ $professor->email }}</td>
+                <td>{{ $professor->role->name }}</td>
+                <td>{{ $professor->created_at->diffForHumans() }}</td>
+                <td>{{ $professor->updated_at->diffForHumans() }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
 
 
 @if(count($subjects))
@@ -57,9 +61,9 @@
                 @foreach($subject->programs()->with('classroom')->where('professor_id','=',$professor->id)->get()->pluck('classroom') as $classroom)
      
                 
-                    <a class="h6" href='{{ route('professor.classroomStudents',$classroom->id) }}' >{{ $classroom->class_name.', ' }}</a>
+                    <a class="h6" href="{{ route('professor.classroomStudents',$classroom->id) }}" >{{ $classroom->class_name.', ' }}</a>
                 
-                    <a href='{{ route('subjectClass.destroy',[$professor->id,$subject->id,$classroom->id]) }}' class='deleteClass' >Delete</a>
+                    <a href="{{ route('subjectClass.destroy',[$professor->id,$subject->id,$classroom->id]) }}" class='deleteClass' >Delete</a>
                     
                     
                 @endforeach
@@ -72,7 +76,7 @@
 </table>
 
 @else
-    <h6>Professor doesn't have subjects</h6>
+    <h6 class="mt-4">Professor doesn't have subjects</h6>
 @endif
 
 <br>

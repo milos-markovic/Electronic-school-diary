@@ -1,29 +1,26 @@
 @extends('masterPage')
 
-
 @section('content')
 
-<h2>Login:</h2><br>
 
-@include('errors.formErrors')
+    <div class="border border-dark w-50 mx-auto p-5">
+        <form action="{{ route('login') }}" method="POST">
+
+            {!! csrf_field() !!}
+            <div class="form-group">
+                <label for="email">Email: </label>
+                <input type="text" name="email" id="email" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" class="form-control">
+            </div>
+            <div class="form-group text-center">
+                <input type="submit" value="Login" class="btn btn-primary">
+            </div>
+        </form>
+    </div>
 
 
-<form action='{{ route('login.user') }}' method='POST'>
-    
-    {{ csrf_field() }}
-    <p>
-        <label for='email' >Email:</label>
-        <input type='text' name='email' id='email' class='form-control' />
-    </p>
-    <p>
-        <label for='password'>Password:</label>
-        <input type='password' name='password' id='password' class='form-control' />
-    </p>
-    <p>
-        <input type='submit' name='submit' value='Login' class='btn btn-outline-primary' />
-    </p>
-    
-</form>
 
 @stop
-

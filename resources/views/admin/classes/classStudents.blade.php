@@ -20,13 +20,13 @@
         <tbody>
             @foreach($students as $student)
             <tr>
-                <td><img src='http://localhost/elektronski_dnevnik/public/images/{{ $student->photo->name }}' width='80' /></td>
-                <td><a href='{{ route('classroom.student.details',[$student->classroom->id,$student->id]) }}'>{{ $student->first_name }}</a></td>
+                <td><img src="{{ asset('images/'.$student->photo->name) }}" width='80' /></td>
+                <td><a href="{{ route('classroom.student.details',[$student->classroom->id,$student->id]) }}">{{ $student->first_name }}</a></td>
                 <td>{{ $student->last_name }}</td>
                 <td>{{ $student->email }}</td>
                 <td>{{ $student->date_of_birth }}</td>
-                <td><a href='{{ route('classroom.studentEdit',$student->id) }}' class='btn btn-outline-primary' >Update</a></td>
-                <td><a href='{{ route('classroom.studentDestroy',[ $classroom->id,$student->id ]) }}' class='btn btn-outline-danger' >Delete</a></td>
+                <td><a href="{{ route('classroom.studentEdit',$student->id) }}" class='btn btn-outline-primary' >Update</a></td>
+                <td><a href="{{ route('classroom.studentDestroy',[ $classroom->id,$student->id ]) }}" class='btn btn-outline-danger' >Delete</a></td>
             </tr>
             @endforeach
         </tbody>

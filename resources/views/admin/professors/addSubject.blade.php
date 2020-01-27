@@ -4,7 +4,7 @@
 @section('content')
 
 
-    <h2>Add subject to professor {{ $professor->first_name.' '.$professor->last_name }}</h2><br><br>
+    <h2 class="text-center">Add subject to professor {{ $professor->first_name.' '.$professor->last_name }}</h2><br><br>
 
 
     @include('errors.formErrors')
@@ -45,8 +45,8 @@
             @endforeach
 
         </div>
-        <div class="form-group">
-            <input type="submit" name="submit" value="Create" class="btn btn-outline-success"  />
+        <div class="form-group text-center">
+            <input type="submit" name="submit" value="Add Subject" class="btn btn-outline-primary"  />
         </div>
     </form>
 

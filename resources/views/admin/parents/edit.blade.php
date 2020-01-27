@@ -3,10 +3,7 @@
 @section('content')
 
 
-<h2>Update parent {{ $parent->first_name.' '.$parent->last_name }}:</h2><br>
-
-
-@include('errors.formErrors')
+<h2 class="text-center">Update parent: {{ $parent->first_name.' '.$parent->last_name }}</h2><br>
 
 
 <div class="row">
@@ -14,15 +11,16 @@
     
     <div class="col-sm-4" >
 
-        <img src="http://localhost/elektronski_dnevnik/public/images/{{ $parent->photo->name }}" class="img-thumbnail border-dark" />
+        <img src="{{ asset('images/'.$parent->photo->name) }}" class="img-thumbnail border-dark" />
 
     </div>
     
 
     <div class="col-sm-8">
     
+        @include('errors.formErrors')
         
-        <form action='{{ route('parents.update',$parent->id) }}' method='POST' enctype='multipart/form-data'>
+        <form action="{{ route('parents.update',$parent->id) }}" method='POST' enctype='multipart/form-data'>
             {{ csrf_field() }}
 
             {{ method_field('PUT') }}
@@ -46,8 +44,8 @@
                 <label  for='photo'>Pick photo for profile:</label>
                 <input type='file' name='photo' id='photo' />
             </p>
-            <p>
-                <input type='submit' name='submit' value='Update' class='btn btn-outline-success' />
+            <p class="text-center">
+                <input type='submit' name='submit' value='Update' class='btn btn-outline-primary' />
             </p>
         </form>
 

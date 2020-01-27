@@ -10,31 +10,36 @@
         <h2>Subjects:</h2><br>
 
         @if(count($subjects))
-            <table class='table'>
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Subject name</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($subjects as $subject)
-                    <tr>
-                        <td>{{ $subject->id }}</td>
-                        <td>{{ $subject->name }}</td>
-                        <td>
-                            <form action='{{ route('subjects.destroy',$subject->id) }}' method='POST'>
-                                
-                                {{ csrf_field() }}
-                                {{ method_field('DELETE') }}
-                                
-                                <input type='submit' name='submit' value='Delete' class='btn btn-outline-danger' />
-                            </form>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+
+            <div class="card">
+                <table class='table'>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Subject name</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($subjects as $subject)
+                        <tr>
+                            <td class="text-center">{{ $subject->id }}</td>
+                            <td>{{ $subject->name }}</td>
+                            <td>
+                                <form action="{{ route('subjects.destroy',$subject->id) }}" method='POST'>
+                                    
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+                                    
+                                    <input type='submit' name='submit' value='Delete' class='btn btn-outline-danger' />
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+
         @else
             <h4>Create subject</h4>
         @endif
